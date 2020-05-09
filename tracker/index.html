@@ -23,20 +23,21 @@
     <h2 class="">Експериментальна робота №9</h2>
     <div class="row">
         <div class="col  bg-info">
+            <div class="btn-group mr-2  btn-on-cnv" role="group" aria-label="Second group">
+                <button id="btn_zoom_default" type="button" class="btn bg-info  mr-1" title="Скинути масштаб">.</button>
+                <button id="btn_zoom_up" type="button" class="btn bg-info  " title="Збільшити">+</button>
+                <button id="btn_zoom_down" type="button" class="btn bg-info ml-1"  title="Зменшити">-</button>
+                <button id="btn_drag" type="button" class="btn bg-info ml-1"  title="Перетягування">※</button>
+            </div>
             <canvas id="c1" width="500" height="688"></canvas>
         </div>
         <div class="col bg-info ">
             <div class="mt-3 ml-0  mr-1 mb-1">
                 <label class="mt-3">Калібрування</label><br>
-                <!--            <button id="btn_calibr"> Калібрування</button><br>-->
-<!--                <select id="calibr" size="2">-->
-<!--                    <option id="k1">Точка 1</option>-->
-<!--                    <option id="k2">Точка 2</option>-->
-<!--                </select>-->
 
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
-                    <button id="k1" type="button" class="btn btn-secondary ml-1"">1</button>
-                    <button id="k2" type="button" class="btn btn-secondary ml-1"">2</button>
+                    <button id="k1" type="button" class="btn btn-secondary ml-1">1</button>
+                    <button id="k2" type="button" class="btn btn-secondary ml-1">2</button>
                 </div>
 
                 <br><br>
@@ -63,12 +64,7 @@
                 </div>
                 <br><br>
 
-                <div class="btn-group mr-2" role="group" aria-label="Second group">
-                    <button id="btn_zoom_default" type="button" class="btn btn-secondary  mr-1" title="Скинути масштаб">.</button>
-                    <button id="btn_zoom_up" type="button" class="btn btn-secondary  " title="Збільшити">+</button>
-                    <button id="btn_zoom_down" type="button" class="btn btn-secondary ml-1"  title="Зменшити">-</button>
-                    <button id="btn_drag" type="button" class="btn btn-secondary ml-1"  title="Перетягування">※</button>
-                </div>
+
             </div>
 
         </div>

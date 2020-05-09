@@ -1,23 +1,23 @@
 $(document).ready(function () {
-    var table10  = "https://spreadsheets.google.com/feeds/list/1rEpRctv3dPRS3lZQpQZD4Xu8FSiKpB6RXGlA4S8i_Ys/od6/public/values?alt=json";
+    // var table10  = "https://spreadsheets.google.com/feeds/list/1rEpRctv3dPRS3lZQpQZD4Xu8FSiKpB6RXGlA4S8i_Ys/od6/public/values?alt=json";
     var table11p = "https://spreadsheets.google.com/feeds/list/1zxh2DQaxdCPwq7CGmvdxRvbOdwl6Zwj5q93SHlvVhfY/od6/public/values?alt=json";
-    var table11a = "https://spreadsheets.google.com/feeds/list/19MlXf5lbEaNC7fCp5DZTu8deYz8fIR9G5IkmU8gW6q8/od6/public/values?alt=json";
+    // var table11a = "https://spreadsheets.google.com/feeds/list/19MlXf5lbEaNC7fCp5DZTu8deYz8fIR9G5IkmU8gW6q8/od6/public/values?alt=json";
 
-    $.getJSON(table10,
-        function (data) {
-            data = data['feed']['entry'];
-            showRate(data);
-        });
+    // $.getJSON(table10,
+    //     function (data) {
+    //         data = data['feed']['entry'];
+    //         showRate(data);
+    //     });
     $.getJSON(table11p,
         function (data) {
             data = data['feed']['entry'];
             showRate(data);
         });
-    $.getJSON(table11a,
-        function (data) {
-            data = data['feed']['entry'];
-            showRate(data);
-        });
+    // $.getJSON(table11a,
+    //     function (data) {
+    //         data = data['feed']['entry'];
+    //         showRate(data);
+    //     });
 
     function showRate(data) {
         var form_count = 35;

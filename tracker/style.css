@@ -10,3 +10,10 @@
 /*	width: 600px;*/
 /*	height: 588px;*/
 /*}*/
+
+.btn-on-cnv {
+	position: relative;
+	left: 95px;
+	top: 640px;
+	z-index: 1;
+}
