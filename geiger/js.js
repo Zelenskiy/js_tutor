@@ -36,33 +36,70 @@ window.onload = function () {
     // base_image = new Image();
     // base_image.src = './images/d1.png';
 
-
+    let k = 0.5001;
+    let t = 100;
+    let fon = 0;
+    let count_beep = 0;
+    let count_no_beep = 0;
     let start = false;
     const engine = new Audio('./audio/alarm.mp3');
     const bip = new Audio('./audio/bip1.mp3');
     // const audio = new Audio('./audio/car.mp3');
-    engine.loop = false;
-    engine.volume = 0.3;
+    engine.loop = true;
     bip.loop = false;
+    engine.volume = 0.3;
     bip.volume = 0.3;
+    var tik = 0;
 
-    function sayHi() {
-
-        setTimeout(sayHi, 500);
+    function sayBeep() {
         if (start){
-            console.log("безкінечний цикл");
-            if (Math.random()<0.5001){
+            setTimeout(sayBeep, t);
+            fon = count_beep/count_no_beep*11;
+            if (Math.random()<k){
+                count_beep++;
                 bip.play();
+
+            } else {
+                count_no_beep++;
+            }
+            if (++tik%5==0) {
+                if (count_no_beep + count_beep < 50) {
+                    if (document.getElementById("lbl").innerText == "")
+                        document.getElementById("lbl").innerText = "0.00";
+                    else {
+                        document.getElementById("lbl").innerText = "";
+                    }
+                } else {
+
+                    document.getElementById("lbl").innerText = (fon / 100).toFixed(2);
+                }
+
             }
         }
     }
 
-    setTimeout(sayHi, 1000);
+    // setTimeout(sayBip, 1000);
 
+    function float_to_fix2(f){
+        s =String(f);
+        l = s.length;
+        n = s.indexOf('.');
+        if(l-n<3){
+            sot = s.substring(0,n);
+            drob = s.substring(n+1);
+            s=sot+'.'+drob+'0';
+        }
+        if (s.length>5){
+            s = s.substring(0,5);
+        }
+        return s;
+    }
 
     document.querySelector('.start').addEventListener('click', function () {
         if (start === false) {
             start = true;
+            tik = 0;
+            setTimeout(sayBeep, t);
             this.innerHTML = 'stop';
             document.getElementById("lbl").innerText ="0.00";
             // engine.play();
@@ -71,6 +108,8 @@ window.onload = function () {
             // глушим
             start = false;
             this.innerHTML = 'start';
+            count_beep = 0;
+            count_no_beep = 0;
             document.getElementById("lbl").innerText ="";
             // engine.pause();
 
