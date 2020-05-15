@@ -10,6 +10,14 @@ var x0 = 0;
 var y0 = 0;
 var wimage = 0;
 var himage = 0;
+var platform = "Desktop";
+if ((navigator.userAgent.match('iPhone'))|| (navigator.userAgent.match('Android'))||
+	(navigator.userAgent.match('iPad'))||
+	(navigator.userAgent.match('RIM'))){
+	platform = "Mobile";
+} else {
+	platform = "Desktop";
+}
 
 var mash = 1;
 
@@ -95,7 +103,13 @@ function make_base(){
 	base_image.src = './track.png';
 	wimage = base_image.width;
 	himage = base_image.height;
+
+	console.log("wimage->"+wimage);
+	console.log("himage->"+himage);
+
+	// ctx.drawImage(base_image, x0, y0);
 	ctx.drawImage(base_image, x0, y0, wimage*mash, himage*mash);
+
 }
 
 function draw_chordes(){
@@ -158,17 +172,14 @@ document.getElementById('o1').onclick = function(){
 	mode = 0;
 	mark_btn = 1;
 };
-
 document.getElementById('o2').onclick = function(){
 	mode = 0;
 	mark_btn = 2;
 };
-
 document.getElementById('o3').onclick = function(){
 	mode = 0;
 	mark_btn = 3;
 };
-
 document.getElementById('k1').onclick = function(){
 	mode = 1;
 	kalibr_btn = 1;
@@ -178,14 +189,11 @@ document.getElementById('k2').onclick = function(){
 	kalibr_btn = 2;
 };
 
-
 // document.getElementById('calibr').onclick = function(){
 // 	var card = document.getElementById("calibr");
 // 	if (mode != 1) card.selectedIndex = 1;
 // 	mode = 1;
 // };
-
-
 
 document.getElementById('btn_draw').onclick = function(){
 	make_base();
@@ -245,12 +253,61 @@ document.getElementById('btn_drag').onclick = function(){
 
 var xx0 = 0;
 var yy0 = 0;
+ssss();
+
+function ssss(){
+	if (platform=="Mobile"){
+		// document.getElementById("c1").style.width = "100%";
+
+		// document.getElementById("c1").style.height = yImage
+		let w = window.innerWidth-40;
+		let h = window.innerHeight-40;
+		// var xImage = document.getElementById("c1").offsetWidth;
+		// var yImage = document.getElementById("c1").offsetHeight;
+		document.getElementById("c1").style.width = w+"px";
+		document.getElementById("c1").style.height = parseInt(h - h/10)+"px";
+		document.getElementById("c1").setAttribute("width",String(w));
+		document.getElementById("c1").setAttribute("height",String(parseInt(h - h/10)));
+
+		document.getElementById("xcont").style.position = "absolute";
+		document.getElementById("xcont").style.width = "50%";
+		document.getElementById("xcont").style.zIndex = "1";
+		document.getElementById("xcont").style.top = "-100px";
+		document.getElementById("xcont").style.left = "20px";
+		document.getElementById("xcont").style.padding = "20px 20px 20px 20px";
+
+
+
+		/*#xcont {*/
+		/*	position: absolute;*/
+		/*	width: 50%;*/
+		/*	z-index: 1;*/
+		/*	top: 50px;*/
+		/*	left: 50px;*/
+		/*	padding: 20px 20px 20px 20px ;*/
+		/*}*/
+
+
+
+		make_base();
+	} else {
+		document.getElementById("c1").style.width ="500px";
+		document.getElementById("c1").style.height = "688px";
+		document.getElementById("c1").setAttribute("width","500");
+		document.getElementById("c1").setAttribute("height","688");
+		// document.getElementById("c1").style.top = 0+"px";
+		make_base();
+	}
+}
+
+window.onresize = function () {
+	ssss();
+}
 
 //document.querySelector('#out').innerHTML = navigator.userAgent;
-if ((navigator.userAgent.match('iPhone'))|| (navigator.userAgent.match('Android'))||
-	(navigator.userAgent.match('iPad'))||
-	(navigator.userAgent.match('RIM'))){
-	//mobile
+
+
+if (platform=="Mobile"){
 	canvas.onpointerdown = function(event){
 		var r1 = Math.sqrt((event.offsetX - m1.x)*(event.offsetX - m1.x)+(event.offsetY - m1.y)*(event.offsetY - m1.y));
 		var r2 = Math.sqrt((event.offsetX - m2.x)*(event.offsetX - m2.x)+(event.offsetY - m2.y)*(event.offsetY - m2.y));
@@ -325,11 +382,7 @@ if ((navigator.userAgent.match('iPhone'))|| (navigator.userAgent.match('Android'
 			console.log("x0="+x0+"  y0="+y0);
 		}
 	}
-
-
-} else {
-	//Desktop
-
+}else {
 	canvas.onmousedown = function(event){
 		var r1 = Math.sqrt((event.offsetX - m1.x)*(event.offsetX - m1.x)+(event.offsetY - m1.y)*(event.offsetY - m1.y));
 		var r2 = Math.sqrt((event.offsetX - m2.x)*(event.offsetX - m2.x)+(event.offsetY - m2.y)*(event.offsetY - m2.y));
@@ -349,7 +402,6 @@ if ((navigator.userAgent.match('iPhone'))|| (navigator.userAgent.match('Android'
 		canvas.onmousemove = function(event){
 			ctx.clearRect(0,0,cW,cH);
 			if (mode == 0) {
-
 				var card = document.getElementById("markers");
 				if (mark_btn== 1) {
 					m1.x = event.offsetX;
@@ -404,7 +456,4 @@ if ((navigator.userAgent.match('iPhone'))|| (navigator.userAgent.match('Android'
 			console.log("x0="+x0+"  y0="+y0);
 		}
 	}
-
-
 }
-
