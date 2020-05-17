@@ -192,6 +192,8 @@ function reset_color_markers_btn() {
     document.getElementById('o1').style.background = "rgba(250, 50, 50, .5)";
     document.getElementById('o2').style.background = "rgba(50, 150, 50, .5)";
     document.getElementById('o3').style.background = "rgba(50, 50, 150, .5)";
+    document.getElementById('k1').style.background = "rgba(50, 50, 50, 1)";
+    document.getElementById('k2').style.background = "rgba(50, 50, 50, 1)";
 }
 
 document.getElementById('o1').onclick = function () {
@@ -451,6 +453,19 @@ if (platform == "Mobile") {
             Math.pow(event.offsetY - mk_trans(m2.y, y0), 2));
         let r3 = Math.sqrt(Math.pow(event.offsetX - mk_trans(m3.x, x0), 2) +
             Math.pow(event.offsetY - mk_trans(m3.y, y0), 2));
+        if (rk1 < 5) {
+            mode = 1;
+            kalibr_btn = 1;
+            reset_color_markers_btn();
+            document.getElementById('k1').style.background = "rgba(255, 50, 50, 1)";
+        } else
+        if (rk2 < 5) {
+            mode = 1;
+            kalibr_btn = 2;
+            reset_color_markers_btn();
+            document.getElementById('k2').style.background = "rgba(255, 50, 50, 1)";
+        } else
+
         if (r1 < 5) {
             mark_btn = 1;
             reset_color_markers_btn();
@@ -484,17 +499,6 @@ if (platform == "Mobile") {
                     m3.y = mk_anti_trans(event.offsetY, y0) ;
                 };
 
-                // if (mark_btn == 1) {
-                //     m1.x = event.offsetX;
-                //     m1.y = event.offsetY;
-                // } else if (mark_btn == 2) {
-                //     m2.x = event.offsetX;
-                //     m2.y = event.offsetY;
-                // } else if (mark_btn == 3) {
-                //     m3.x = event.offsetX;
-                //     m3.y = event.offsetY;
-                // };
-                //
 
                 make_base();
                 draw_markers();
@@ -505,11 +509,11 @@ if (platform == "Mobile") {
             } else if (mode == 1) {
                 let card = document.getElementById("calibr");
                 if (kalibr_btn == 1) {
-                    k1.x = event.offsetX;
-                    k1.y = event.offsetY;
+                    k1.x =mk_anti_trans(event.offsetX, x0) ;
+                    k1.y = mk_anti_trans(event.offsetY,y0) ;
                 } else if (kalibr_btn == 2) {
-                    k2.x = event.offsetX;
-                    k2.y = event.offsetY;
+                    k2.x = mk_anti_trans(event.offsetX, x0) ;
+                    k2.y = mk_anti_trans(event.offsetY, y0) ;
                 }
                 make_base();
                 draw_markers();
@@ -519,8 +523,6 @@ if (platform == "Mobile") {
             } else if (mode == 2) {
                 let evX = event.offsetX;
                 let evY = event.offsetY;
-               // let evX = mk_trans(event.offsetX,x0);
-               //  let evY = mk_trans(event.offsetY,y0);
                 x0 += (evX - xx0);
                 y0 += (evY - yy0);
 
