@@ -7,14 +7,28 @@
 	/*background-image: url(trek.jpg);*/
 }
 
-/*#xcont {*/
-/*	position: absolute;*/
-/*	width: 50%;*/
-/*	z-index: 1;*/
-/*	top: 50px;*/
-/*	left: 50px;*/
-/*	padding: 20px 20px 20px 20px ;*/
-/*}*/
+.bg-red{
+	background: rgba(250, 50, 50, 0.5);
+	border: none;
+	color: white;
+	width: 5ch;
+	height: 4ch;
+
+}
+.bg-green{
+	background: rgba(50, 150, 50, 0.5);
+	border: none;
+	color: white;
+	width: 5ch;
+	height: 4ch;
+}
+.bg-blue{
+	background: rgba(50, 50, 150, 0.5);
+	border: none;
+	color: white;
+	width: 5ch;
+	height: 4ch;
+}
 
 #main {
 	width: 100%;
