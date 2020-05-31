@@ -8,9 +8,6 @@
 
 <div id="bla_1"></div>
 
-<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
 
 <script>
 
@@ -35,10 +32,25 @@
             if (err !== null){
                 alert("Error: "+err);
             } else {
-                data = data['feed']['entry'][0]['gsx$image']['$t'];
+                data = data['feed']['entry'];
                 console.log(data);
-                document.write(
-                    '<img src="'+data+'">');
+                // document.write(
+                //     '<img src="'+data+'">');
+                let out= "";
+                for (var i=0; i<data.length;i++){
+                    if (!data[i]['gsx$show']['$t']==0) {
+                        out += `<div class="col-lg-3 col-md-3 col-sm-2 text-center">`;
+                        out += `    <div class="goods">`;
+                        out += `   <h5>${data[i]['gsx$name']['$t']}</h5>`;
+                        out += `   <img src="${data[i]['gsx$image']['$t']}" height="200" alt="">`;
+                        out += `   <p class="cost">Ціна: ${data[i]['gsx$cost']['$t']} грн</p>`;
+                        out += `   <p class="cost">на складі: ${data[i]['gsx$kg']['$t']}</p>`;
+                        out += `   <button type="button" class="btn btn-success" name="add-to-card" idTovar="${data[i]['gsx$id']['$t']}">Купити</button>`;
+                        out += `</div>`;
+                        out += `</div>`;
+                    }
+                }
+                document.write(out);
             }
 
         });

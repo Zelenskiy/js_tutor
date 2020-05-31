@@ -1,0 +1,18 @@
+11 клас
+
+https://phet.colorado.edu/uk/simulation/molecules-and-light
+<iframe src="https://phet.colorado.edu/sims/html/molecules-and-light/latest/molecules-and-light_en.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+
+https://phet.colorado.edu/uk/simulation/atomic-interactions
+<iframe src="https://phet.colorado.edu/sims/html/atomic-interactions/latest/atomic-interactions_en.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+
+https://phet.colorado.edu/uk/simulation/rutherford-scattering
+<iframe src="https://phet.colorado.edu/sims/html/rutherford-scattering/latest/rutherford-scattering_uk.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+
+https://phet.colorado.edu/uk/simulation/wave-interference
+<iframe src="https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_uk.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+
+https://phet.colorado.edu/uk/simulation/bending-light
+<iframe src="https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_uk.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+
+https://phet.colorado.edu/uk/simulation/masses-and-springs-basics

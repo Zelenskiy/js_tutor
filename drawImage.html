@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+    <style>
+    	canvas { 
+		   width: 500px;
+		   height: 688px;
+		   border: 3px solid black;
+		   background-image: url(trek.jpg);
+		}
+    </style>
+</head>
+
+<body>
+<table>
+	<tr>
+		<td><canvas id="drawingCanvas" 
+			width="500" height="688" 
+			onmousemove="move();" 
+			onmousedown="down(event);"
+			onmouseup="up();"
+			></canvas></td>
+		<td>
+			<label id="lbl1">www</label><br>
+			<label id="lbl2">eee</label><br>
+			<button id="btn"> Draw</button><br>
+			<button id="btn2"> Clear</button><br>
+			<button id="btn3"> All</button><br>
+		</td>
+	</tr>
+</table>
+
+
+
+<script>
+	var canvas = document.getElementById("drawingCanvas");
+	var ctx = canvas.getContext("2d");
+
+	var Marker = function (x,y,w,h) {
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
+	};
+	Marker.prototype.draw = function () {
+		ctx.beginPath();
+		ctx.rect(this.x, this.y, this.w, this.h);
+		ctx.fillStyle = "#FF0000";
+		ctx.stroke();
+		ctx.closePath();
+	}
+	Marker.prototype.set_coords = function (x,y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	Marker.prototype.clear = function () {
+		ctx.beginPath();
+		ctx.rect(this.x+50, this.y+50, this.w, this.h);
+		ctx.strokeStyle = "#FF0000";
+		ctx.stroke();
+		ctx.closePath();
+	}
+
+
+	var m1 = new Marker(10,10,50,50);
+	var m2 = new Marker(60,60,50,50);
+	var m3 = new Marker(100,100,50,50);
+
+
+	document.getElementById("btn").onclick = function () {
+		m1.draw();
+	}
+
+	document.getElementById("btn_calibr").onclick = function () {
+
+	}
+
+	document.getElementById("btn2").onclick = function () {
+		ctx.clearRect(0, 0, 500, 688);
+		m1.clear();
+
+	}
+	document.getElementById("btn3").onclick = function () {
+		ctx.clearRect(0, 0, 500, 688);
+		m1.draw();
+		m2.draw();
+		m3.draw();
+
+	}
+
+	// document.getElementById("btn").onclick = function () {
+	// 	console.log("aaaaaa");
+	// 	ctx.beginPath();
+	// 	ctx.rect(20, 40, 50, 50);
+	// 	ctx.fillStyle = "#FF0000";
+	// 	ctx.fill();
+	// 	ctx.closePath();
+	// 	ctx.beginPath();
+	//
+	// 	ctx.rect(10, 10, 10, 10);
+	// 	ctx.fillStyle = "#FFFF00";
+	// 	ctx.fill();
+	// 	ctx.closePath();
+	// }
+
+
+
+	function move() {
+		//
+	};
+
+	function down(event) {
+		console.log(event.offsetX);
+		document.getElementById('lbl1').innerText = "head";
+
+	};
+
+	function up(){
+		//console.log("up");
+		document.getElementById('lbl1').innerText = "";
+
+	};
+
+</script>
+
+
+
+</body>
+</html>
