@@ -21,18 +21,21 @@ getJSON('https://spreadsheets.google.com/feeds/list/1yoiBBCXP-x8mO2BHM3wZzsLSQi2
         } else {
             data = data['feed']['entry'];
             console.log(data);
-            let out= "";
+            let out= '';
             for (var i=0; i<data.length;i++){
                 if (!data[i]['gsx$show']['$t']==0) {
-                    out += `<div class="k">`;
-                    out += `    <div class="goods">`;
-                    out += `   <p  class="title">${data[i]['gsx$title']['$t']}</p>`;
-                    out += `   <div class="container">`;
-                    out += `   <img src="${data[i]['gsx$image']['$t']}" height="200" alt="">`;
-                    out += `   </div>`;
-                    out += `   <p class="content">${data[i]['gsx$content']['$t']} </p>`;
-                    out += `   <p class="date">Змінено: ${data[i]['gsx$date']['$t']} </p>`;
-                    out += `</div>`;
+                    out += `<div class="goods">`;
+                    out += `    <p class="title">${data[i]['gsx$title']['$t']}</p>`;
+                    out += '';
+                    out += `    <div class="container">`;
+                    out += `        <img src="${data[i]['gsx$image']['$t']}" height="200" alt="">`;
+                    out += `    </div>`;
+                    out += `    <div class="text-container">`;
+                    let s = data[i]['gsx$content']['$t'];
+                    s = s.replace(/\n/g,"<br>");
+                    out += `        <p class="content">${s} </p>`;
+                    out += `        <p class="date">Змінено: ${data[i]['gsx$date']['$t']} </p>`;
+                    out += `    </div>`;
                     out += `</div>`;
                 }
             }

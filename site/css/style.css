@@ -1,49 +1,88 @@
 body{
-
-
     font-family: Arial;
+    background-color: #2d2e30;
+    color: darkgrey;
 }
+
+.banner{
+    top:25px;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.main-menu-block{
+    position: fixed;
+    background-color: rgba(45,46,48,0.85);
+    width: 100%;
+    margin: 0px 0px 0px 0px; /* Отступ слева */
+    padding: 0px 0px 0px 0px; /* Отступ слева */
+
+}
+
 ul.main-menu {
-    margin: 0; /* Обнуляем значение отступов */
+
+    margin: 5px 5px 20px 0px ; /* Обнуляем значение отступов */
     padding: 4px; /* Значение полей */
+    color: darkgrey;
+
+
 }
 ul.main-menu li {
     display: inline; /* Отображать как строчный элемент */
     margin-right: 5px; /* Отступ слева */
-    border: 1px solid #000; /* Рамка вокруг текста */
+    border: 1px solid darkgrey; /* Рамка вокруг текста */
+    border-radius: 5px;
     padding: 3px; /* Поля вокруг текста */
+    background-color: #2d2e30;
+    font-size: large;
 }
 .title {
-
-    color: red;
+    font-style: unset;
+    /*background-color: #1a73e8;*/
+    border: 1px solid darkgrey; /* Рамка вокруг текста */
+    border-radius: 5px;
+    color: darkgrey;
+    margin: 5px 5px 5px 5px; /* Отступ слева */
+    padding: 5px 5px 5px 5px; /* Отступ слева */
 }
 .date {
 
-    color: blue;
+    color: darkgrey;
 }
 .container {
-    width: 200px;
-
+    padding: 5px 5px 5px 5px; /* Отступ слева */
+    width: 150px;
+    margin-right: 5px;
     /*height: 200px;*/
 }
-div.k{
-
-    display: flex;
-
-
+.text-container {
+    position: relative;
+    left: 5px;
+    /*height: 200px;*/
 }
+
+.mm{
+    display: block;
+    align-content: center;
+}
+
 
 div.goods {
+
     margin: 5px 5px 5px 5px; /* Отступ слева */
     padding: 5px 5px 5px 5px ;
-    border: 1px solid #000; /* Рамка вокруг текста */
-    max-width: 1000px;
+    /*border: 1px solid #1a73e8; !* Рамка вокруг текста *!*/
+    /*max-width: 1000px;*/
     min-width: 600px;
 
+    min-height: 100%;
+    overflow: hidden;
+    flex-direction: column;
 }
 
-.container img{
 
+.container img{
+    float: left;
     width: 100%;
     height: auto;
 }
