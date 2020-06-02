@@ -27,7 +27,9 @@ getJSON('https://spreadsheets.google.com/feeds/list/1yoiBBCXP-x8mO2BHM3wZzsLSQi2
                     out += `<div class="k">`;
                     out += `    <div class="goods">`;
                     out += `   <p  class="title">${data[i]['gsx$title']['$t']}</p>`;
+                    out += `   <div class="container">`;
                     out += `   <img src="${data[i]['gsx$image']['$t']}" height="200" alt="">`;
+                    out += `   </div>`;
                     out += `   <p class="content">${data[i]['gsx$content']['$t']} </p>`;
                     out += `   <p class="date">Змінено: ${data[i]['gsx$date']['$t']} </p>`;
                     out += `</div>`;

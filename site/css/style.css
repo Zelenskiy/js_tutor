@@ -1,4 +1,49 @@
-.title {
+body{
+
+
     font-family: Arial;
+}
+ul.main-menu {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 4px; /* Значение полей */
+}
+ul.main-menu li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+    border: 1px solid #000; /* Рамка вокруг текста */
+    padding: 3px; /* Поля вокруг текста */
+}
+.title {
+
     color: red;
+}
+.date {
+
+    color: blue;
+}
+.container {
+    width: 200px;
+
+    /*height: 200px;*/
+}
+div.k{
+
+    display: flex;
+
+
+}
+
+div.goods {
+    margin: 5px 5px 5px 5px; /* Отступ слева */
+    padding: 5px 5px 5px 5px ;
+    border: 1px solid #000; /* Рамка вокруг текста */
+    max-width: 1000px;
+    min-width: 600px;
+
+}
+
+.container img{
+
+    width: 100%;
+    height: auto;
 }
