@@ -12,10 +12,12 @@ body{
 
 .main-menu-block{
     position: fixed;
+    top:0px;
     background-color: rgba(45,46,48,0.85);
     width: 100%;
     margin: 0px 0px 0px 0px; /* Отступ слева */
     padding: 0px 0px 0px 0px; /* Отступ слева */
+
 
 }
 
@@ -24,7 +26,7 @@ ul.main-menu {
     margin: 5px 5px 20px 0px ; /* Обнуляем значение отступов */
     padding: 4px; /* Значение полей */
     color: darkgrey;
-
+    cursor: pointer;
 
 }
 ul.main-menu li {
@@ -37,8 +39,9 @@ ul.main-menu li {
     font-size: large;
 }
 .title {
-    font-style: unset;
+    /*font-weight: bold;*/
     /*background-color: #1a73e8;*/
+    cursor: pointer;
     border: 1px solid darkgrey; /* Рамка вокруг текста */
     border-radius: 5px;
     color: darkgrey;
@@ -49,40 +52,59 @@ ul.main-menu li {
 
     color: darkgrey;
 }
-.container {
-    padding: 5px 5px 5px 5px; /* Отступ слева */
-    width: 150px;
-    margin-right: 5px;
+.image-container {
+    padding: 1em 1em 1em 1em; /* Отступ слева */
+    width: 10rem;
+    /*margin-right: 5px;*/
     /*height: 200px;*/
 }
 .text-container {
+    line-height: 1.25;
     position: relative;
-    left: 5px;
+    left: 1em;
+
+    /*margin: 5px;*/
+    padding: 0px 5px 5px 5px;
     /*height: 200px;*/
 }
 
+.read-next{
+    color: #2f5bb7;
+    cursor: pointer;
+}
+
 .mm{
-    display: block;
-    align-content: center;
+    /*display: block;*/
+    /*align-content: center;*/
+    /*max-width: 1200px;*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 
 div.goods {
+    width: 80%;
 
-    margin: 5px 5px 5px 5px; /* Отступ слева */
-    padding: 5px 5px 5px 5px ;
+    margin: 0px 5px 5px 5px; /* Отступ слева */
+    padding: 0px 5px 5px 5px ;
     /*border: 1px solid #1a73e8; !* Рамка вокруг текста *!*/
     /*max-width: 1000px;*/
     min-width: 600px;
 
     min-height: 100%;
     overflow: hidden;
-    flex-direction: column;
+    /*flex-direction: column;*/
 }
 
 
-.container img{
+.image-container img{
     float: left;
     width: 100%;
     height: auto;
 }
+
+#home-page{
+    cursor: pointer;
+}
+
