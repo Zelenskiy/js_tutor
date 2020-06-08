@@ -3,6 +3,11 @@ body{
     background-color: #2d2e30;
     color: darkgrey;
 }
+.header{
+    font-size: x-large;
+    padding-left: 1em;
+    /*text-align: center;*/
+}
 
 .banner{
     top:25px;
@@ -26,7 +31,7 @@ ul.main-menu {
     margin: 5px 5px 20px 0px ; /* Обнуляем значение отступов */
     padding: 4px; /* Значение полей */
     color: darkgrey;
-    cursor: pointer;
+
 
 }
 ul.main-menu li {
@@ -37,6 +42,7 @@ ul.main-menu li {
     padding: 3px; /* Поля вокруг текста */
     background-color: #2d2e30;
     font-size: large;
+    cursor: pointer;
 }
 .title {
     /*font-weight: bold;*/
