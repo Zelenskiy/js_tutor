@@ -1,5 +1,4 @@
 var d = "";
-
 var strGET = window.location.search.replace('?', '');
 
 let getJSON = function (url, callback) {
@@ -16,6 +15,7 @@ let getJSON = function (url, callback) {
     };
     xhr.send();
 };
+
 getJSON('https://spreadsheets.google.com/feeds/list/1yoiBBCXP-x8mO2BHM3wZzsLSQi2XEGp_9eWM97eEgJY/od6/public/values?alt=json',
     function (err, data) {
         console.log(data);
@@ -30,24 +30,19 @@ getJSON('https://spreadsheets.google.com/feeds/list/1yoiBBCXP-x8mO2BHM3wZzsLSQi2
                 if (name_p === "news") {
                     show_news(data['feed']['entry'][value_p], value_p);
                 } if (name_p === "pages") {
-                    get_page(value_p);
-
+                    show_page(value_p);
                 }
             }
         }
     });
 
-function get_page(p) {
+function show_page(p) {
     getJSON('https://spreadsheets.google.com/feeds/list/1yoiBBCXP-x8mO2BHM3wZzsLSQi2XEGp_9eWM97eEgJY/2/public/values?alt=json',
         function (err, data_p) {
-            console.log(data_p);
             if (err !== null) {
                 alert("Error: " + err);
             } else {
-                console.log(data_p);
-
                 show_news(data_p['feed']['entry'][p],p);
-
             }
         });
 }
@@ -83,9 +78,11 @@ function show_news(d, i) {
         out += `<div class="goods">`;
         out += `    <p class="header" onclick="reload_news(` + i + `);">${d['gsx$title']['$t']}</p>`;
         out += '';
-        out += `    <div class="image-container">`;
-        out += `        <img src="${d['gsx$image']['$t']}" height="200" alt="">`;
-        out += `    </div>`;
+        if (d['gsx$image']['$t'] !=""){
+            out += `    <div class="image-container">`;
+            out += `        <img src="${d['gsx$image']['$t']}" height="200" alt="">`;
+            out += `    </div>`;
+        }
         out += `    <div class="text-container">`;
         let s = d['gsx$content']['$t'];
         let ss = s.split(/\n/g);
@@ -93,19 +90,20 @@ function show_news(d, i) {
         for (let i=0; i<ss.length;i++){
             s+=`<p>`+ss[i]+`</p>`;
         }
-
         s = s.replace("<p></p><p></p>", "<p></p>");
-        // s = s.replace(/\n/g, "<br>");
         out += `        <p class="content">${s} </p>`;
         out += `        <p class="date">Змінено: ${d['gsx$date']['$t']} </p>`;
         out += `    </div>`;
         out += `</div>`;
-
     }
     document.getElementById('main').innerHTML = out;
 }
 
 function reload_news(i) {
     window.location = "./index.html?news=" + i;
+}
+
+function reload_pages(i) {
+    window.location = "./index.html?pages=" + i;
 }
 
